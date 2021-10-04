@@ -9,46 +9,51 @@
     <title>My Performance</title>
 
     <!-- 부트스트랩 -->
-    <link href="mp/css/bootstrap.min.css" rel="stylesheet">
-    <link href="mp/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css">
+
 </head>
 <body>
 <div id="wrap">
     <header>
         <nav class="navbar navbar-default">
-            <div class="navbar-header">
-                <a href="index.jsp" class="navbar-brand">My Performance</a>
-                <button type="button" class="navbar-toggle" data-bs-toggle="collapse" data-bs-target=".collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="main.jsp">메인</a></li>
-                    <li><a href="mp/inbody/inbody.jsp">인바디</a></li>
-                    <li><a href="mp/board/board.jsp">게시판</a></li>
-                    <li role="presentation" class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
-                            계산기 <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="mp/bmi/bmi.jsp">bmi 계산기</a></li>
-                            <li><a href="mp/1rm/1rm.jsp">1rm 계산기</a></li>
-                            <li><a href="mp/basal_metabolism">기초대사량 계산기</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <% if(session.getAttribute("id") == null){ %>
-                    <li><a href="mp/member/login.jsp"> 로그인 </a></li>
-                    <li><a href="mp/member/register.jsp"> 회원가입 </a></li>
-                    <%}else{ %>
-                    <li><a href="mp/member/logout.jsp"> 로그아웃 </a></li>
-                    <li><a href="mp/member/modify.jsp"> 정보수정 </a></li>
-                    <%} %>
-                </ul>
+            <div class="container">
+                <div class="navbar-header">
+                    <a href="../index.jsp" class="navbar-brand">My Performance</a>
+                    <button class="navbar-toggle collapsed" type="button"
+                            data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="../main.jsp">메인</a></li>
+                        <li><a href="../inbody.jsp">인바디</a></li>
+                        <li><a href="../board.jsp">게시판</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                계산기 <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../bmi.jsp">bmi 계산기</a></li>
+                                <li><a href="../1rm.jsp">1rm 계산기</a></li>
+                                <li><a href="../basal_metabolism.jsp">기초대사량 계산기</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <% if(session.getAttribute("id") == null){ %>
+                        <li><a href="../member/login.jsp"> 로그인 </a></li>
+                        <li><a href="../member/register.jsp"> 회원가입 </a></li>
+                        <%}else{ %>
+                        <li><a href="../member/logout.jsp"> 로그아웃 </a></li>
+                        <li><a href="../member/modify.jsp"> 정보수정 </a></li>
+                        <%} %>
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>

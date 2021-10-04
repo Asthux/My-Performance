@@ -5,7 +5,7 @@
 
     <article>
         <div class="container">
-            <div class="jumbotron">
+            <div class="jumbotron" id="index_jumbo">
                 <h1 class="text-center">My Performance 소개</h1><br><br>
                 <p class="text-center">My Performance는 자신의 운동수행능력을 기록하는 사이트입니다.<br>인바디를 기록하며 우리 몸의 변화를 볼 수 있으며,<br>1rm, 기초대사량 등을 계산할 수 있습니다</p><br><br>
                 <p class="text-center"><a class="btn btn-primary btn-lg" href="main.jsp">시작하기</a></p>
