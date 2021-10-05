@@ -32,15 +32,15 @@
                     <ul class="nav navbar-nav">
                         <li><a href="../main.jsp">메인</a></li>
                         <li><a href="../inbody.jsp">인바디</a></li>
-                        <li><a href="../board.jsp">게시판</a></li>
+                        <li><a href="../board/board.jsp">게시판</a></li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                 계산기 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="../bmi.jsp">bmi 계산기</a></li>
-                                <li><a href="../1rm.jsp">1rm 계산기</a></li>
-                                <li><a href="../basal_metabolism.jsp">기초대사량 계산기</a></li>
+                                <li><a href="../calculator/bmi.jsp">bmi 계산기</a></li>
+                                <li><a href="../calculator/1rm.jsp">1rm 계산기</a></li>
+                                <li><a href="../calculator/basal_metabolism.jsp">기초대사량 계산기</a></li>
                             </ul>
                         </li>
                     </ul>
