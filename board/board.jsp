@@ -53,7 +53,8 @@
                     <tr>
                         <td><%=dto.getNum()%></td>
                         <td class="subject">
-                            <a href="view.jsp?num=<%=dto.getNum()%>&pageNumber=<%=boardList.getPageNumber()%>"><%=dto.getSubject().replaceAll(" ","&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>")%></a>
+                            <a href="view.jsp?num=<%=dto.getNum()%>&pageNumber=<%=boardList.getPageNumber()%>">
+                                <%=dto.getSubject()%></a>
                         </td>
                         <td><%=dto.getId()%></td>
                         <td><%=dto.getWriteTime() %></td>
@@ -62,39 +63,58 @@
                     <%} %>
                 </tbody>
             </table>
-            <div>
-                <div id="page_control" >
-                    <%
-                        if(boardList.getPageNumber() <= 1){
-                            out.print("<a href='#'>Prev </a>");
-                        }else{
-                            int tmp = boardList.getPageNumber() - 1;
-                            out.print("<a href='board.jsp?pageNumber=" + tmp + "&mode=" + mode + "&find=" + find + "&data=" + data + "'>Prev </a>");
-                        }
-
-                        for(int i = 1; i <= boardList.getTotalPage(); i++){
-                            if(boardList.getPageNumber() == i)
-                                out.print("<b> " + i + " </b>");
-                            else
-                                out.print("<a href='board.jsp?pageNumber=" + i + "&mode=" + mode + "&find=" + find + "&data=" + data + "'> " + i + " </a>");
-                        }
-
-                        if(boardList.getPageNumber() >= boardList.getTotalPage()){
-                            out.print("<a href='#'>Next </a>");
-                        }else{
-                            int tmp = boardList.getPageNumber() + 1;
-                            out.print("<a href='board.jsp?pageNumber=" + tmp + "&mode=" + mode + "&find=" + find + "&data=" + data + "'>Next </a>");
-                        }
-                    %>
-
-                </div>
-                <div class="pull-left">
-                    <input type="text" class="form-control pull-left">
-                    <input type="button" class="btn btn-primary" value="검색">
-                </div>
-
-                <a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>
-            </div>
     </div>
+    <div class="container">
+        <form action="board.jsp?mode=search" method="post" >
+            <div class="col-md-2">
+                <select class="form-control" name="find">
+                    <option selected>선택</option>
+                    <option value="subject">제목</option>
+                    <option value="content">내용</option>
+                    <option value="id">작성자</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for..." name="data">
+                    <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit">Search</button>
+                </span>
+                </div>
+            </div>
+        </form>
+
+        <div class="pull-right">
+            <a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>
+        </div>
+    </div>
+        <nav id="page_control">
+            <div class="container" style="text-align: center">
+            <ul class="pagination">
+                <%
+                    if(boardList.getPageNumber() <= 1){
+                        out.print(" <li class=\"disabled\"><a href=\"#\" aria-label=\"Previous\"><span aria-hidden=\"true\">&laquo;</span></a></li>");
+                    }else{
+                        int tmp = boardList.getPageNumber() - 1;
+                        out.print("<li><a href='board.jsp?pageNumber="+ tmp + "&mode=" + mode + "&find=" + find + "&data=" + data + "' aria-label='Previous'><span aria-hidden=\"true\">&laquo;</span></a></li>");
+                    }
+
+                    for(int i = 1; i <= boardList.getTotalPage(); i++){
+                        if(boardList.getPageNumber() == i)
+                            out.print("<li class='active'><a href='#'>"+i+"<span class=\"sr-only\">(current)</span></a></li>");
+                        else
+                            out.print("<li><a href='board.jsp?pageNumber=" + i + "&mode=" + mode + "&find=" + find + "&data=" + data + "'> "+i+"<span class=\"sr-only\">(current)</span></a></li>");
+                    }
+
+                    if(boardList.getPageNumber() >= boardList.getTotalPage()){
+                        out.print("<li class=\"disabled\"><a href=\"#\" aria-label=\"Next\"><span aria-hidden=\"true\">&raquo;</span></a></li>");
+                    }else{
+                        int tmp = boardList.getPageNumber() + 1;
+                        out.print("<li><a href='board.jsp?pageNumber=" + tmp + "&mode=" + mode + "&find=" + find + "&data=" + data + "' aria-label=\"Next\"><span aria-hidden=\"true\">&raquo;</span></a></li>");
+                    }
+                %>
+            </ul>
+            </div>
+        </nav>
 </article>
 <%@ include file="/footer.jsp" %>

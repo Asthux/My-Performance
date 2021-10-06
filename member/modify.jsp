@@ -4,32 +4,49 @@
 <%@ include file="../header.jsp" %>
 
 <article>
+    <div class="container" id="common_header">
+        <h1><a href="modify.jsp">회원 정보 수정</a></h1>
+        <hr>
+    </div>
     <div class="container">
-        <div class="jumbotron">
-            <h1 class="text-center">My Performance 소개</h1><br><br>
-            <p class="text-center">My Performance는 자신의 운동수행능력을 기록하는 사이트입니다.<br>인바디를 기록하며 우리 몸의 변화를 볼 수 있으며,<br>1rm, 기초대사량 등을 계산할 수 있습니다</p><br><br>
-            <p class="text-center"><a class="btn btn-primary btn-lg" href="main.jsp">시작하기</a></p>
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <div class="jumbotron" id="register_jumbo">
+                <h2 style="text-align: center">My Performance 회원수정</h2>
+                <hr>
+                <form action="modifyService.jsp" method="post">
+                    <label>아이디</label>
+                    <div class="form-group">
+                        <input type="text" class="form-control" value="<%=session.getAttribute("id") %>" name="id" maxlength="15" disabled>
+                    </div>
+                    <label>비밀번호</label>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="비밀번호" name="pw" maxlength="15">
+                    </div>
+                    <label>비밀번호 확인</label>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="비밀번호 확인" name="pwConfirm" maxlength="15">
+                    </div>
+                    <label>이름</label>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="이름" value="<%=session.getAttribute("name") %>" name="name" maxlength="20">
+                    </div>
+                    <label>이메일</label>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="이메일" value="<%=session.getAttribute("email") %>" name="email" maxlength="50">
+                    </div>
+                    <label>전화번호</label>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="전화번호" value="<%=session.getAttribute("mobile") %>" name="mobile" maxlength="15">
+                    </div>
+                    <label></label>
+                    <input type="submit" class="btn btn-primary form-control" value="회원수정">
+                </form>
+                <hr>
+                <label>회원탈퇴는 <a href="delete.jsp">여기</a>에서 할 수 있습니다</label>
+            </div>
         </div>
-        <div class="row">
-            <div class="col-md-4">
-                <h3>My Performance - Inbody</h3>
-                <hr>
-                <p>My Performance는 회원님의 인바디 기록을 바탕으로 내 몸이 얼마나 성장했는지 한눈에 보여줍니다. 더 이상 종이로 인쇄해서 들고오지 마세요.</p>
-                <hr>
-            </div>
-            <div class="col-md-4">
-                <h3>My Performance - Board</h3>
-                <hr>
-                <p>My Performance 게시판은 회원님들간의 자유로운 소통으로 운동에 관한 여러 지식들을 공유할 수 있습니다. 나만의 팁, 운동아이템을 공유해보세요.</p>
-                <hr>
-            </div>
-            <div class="col-md-4">
-                <h3>My Performance - Calculator</h3>
-                <hr>
-                <p>My Performance 계산기는 자신의 기초대사량, bmi, 1rm이 궁금할 때, 간단한 몇가지의 입력만으로 알아볼 수 있습니다. 내 몸에 대해 더 알아보세요. </p>
-                <hr>
-            </div>
-        </div>
+        <div class="col-lg-3"></div>
     </div>
 </article>
 

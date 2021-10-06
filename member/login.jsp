@@ -14,7 +14,7 @@
             <div class="jumbotron" id="login_jumbo">
                 <h2 style="text-align: center">My Performance 로그인</h2>
                 <hr>
-                <form action="loginService.jsp">
+                <form action="loginService.jsp" method="post">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="아이디" name="id" maxlength="15">
                     </div>
